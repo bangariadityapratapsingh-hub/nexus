@@ -234,7 +234,7 @@ export default function SimulatorPage() {
       </div>
 
       {/* Dynamic offset wrapper for responsive sidebar transitions */}
-      <div className={`transition-all duration-300 ease-in-out pt-20 md:pt-8 pb-16 relative z-10 ${isCollapsed ? 'md:pl-[70px]' : 'md:pl-64'}`}>
+      <div className={`transition-all duration-300 ease-in-out pt-20 md:pt-8 pb-24 md:pb-16 relative z-10 ${isCollapsed ? 'md:pl-[70px]' : 'md:pl-64'}`}>
         {/* Sub-Header: Live 3-Hour Countdown Clock & Print Controls */}
         <div className={`mx-auto px-4 sm:px-6 w-full ${isCollapsed ? 'max-w-[1720px] lg:px-8 xl:px-10' : 'max-w-5xl lg:px-8'} relative z-20 print:hidden`}>
           <div className="glass-nav rounded-2xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 border border-white/10 shadow-lg bg-[#080d22]/80 backdrop-blur-xl">

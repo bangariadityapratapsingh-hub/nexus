@@ -13,7 +13,6 @@ import {
   Check,
   Copy,
   Layers,
-  Sparkles,
   Info,
   ShieldCheck,
   Globe,
@@ -195,7 +194,7 @@ function BookVaultContent() {
 
       {/* Main Content Area - Displaced dynamically for sidebar and expands to full portion when collapsed */}
       <div
-        className={`transition-all duration-300 ease-in-out pt-20 md:pt-8 pb-16 pr-4 sm:pr-6 md:pr-8 relative z-10 ${
+        className={`transition-all duration-300 ease-in-out pt-20 md:pt-8 pb-24 md:pb-16 pr-4 sm:pr-6 md:pr-8 relative z-10 ${
           isCollapsed ? 'md:pl-[70px]' : 'md:pl-64'
         }`}
       >
@@ -212,9 +211,8 @@ function BookVaultContent() {
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
               <div className="space-y-3 max-w-3xl">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/80 border border-amber-300 dark:border-amber-500/40 text-amber-800 dark:text-amber-300 text-xs font-mono font-bold flex items-center space-x-1.5 shadow-sm">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
-                    <span>SDSUV BA NEP-2020 • Odd Semesters</span>
+                  <span className="px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/80 border border-amber-300 dark:border-amber-500/40 text-amber-800 dark:text-amber-300 text-xs font-mono font-bold shadow-sm">
+                    SDSUV BA NEP-2020 · Odd Semesters
                   </span>
                   <span className="px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-500/40 text-emerald-800 dark:text-emerald-300 text-xs font-mono font-bold flex items-center space-x-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
@@ -226,7 +224,7 @@ function BookVaultContent() {
                 </div>
 
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
-                  📚 {lang === 'en' ? 'BA Odd-Semester Free PDF Study-Material Directory' : 'बीए विषम सेमेस्टर निःशुल्क पाठ्यपुस्तक एवं अध्ययन सामग्री निर्देशिका'}
+                  {lang === 'en' ? 'BA Odd-Semester Free PDF Study-Material Directory' : 'बीए विषम सेमेस्टर निःशुल्क पाठ्यपुस्तक एवं अध्ययन सामग्री निर्देशिका'}
                 </h1>
 
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">

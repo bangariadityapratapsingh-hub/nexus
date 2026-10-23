@@ -414,7 +414,7 @@ function NotesStudioContent() {
       </div>
 
       {/* Main Content Area - Displaced dynamically for sidebar and expands to full portion when collapsed */}
-      <div className={`transition-all duration-300 ease-in-out pt-20 md:pt-8 pb-16 pr-4 sm:pr-6 md:pr-8 relative z-10 ${isCollapsed ? 'md:pl-[70px]' : 'md:pl-64'}`}>
+      <div className={`transition-all duration-300 ease-in-out pt-20 md:pt-8 pb-24 md:pb-16 pr-4 sm:pr-6 md:pr-8 relative z-10 ${isCollapsed ? 'md:pl-[70px]' : 'md:pl-64'}`}>
         <main className={`transition-all duration-300 ease-in-out mx-auto space-y-6 w-full ${isCollapsed ? 'max-w-[1720px] lg:px-6 xl:px-8' : 'max-w-7xl lg:px-4'}`}>
           {/* ================================================================ */}
           {/* 3-STEP PROGRESS TRACKER (Subject -> Unit -> Master Notes)        */}
