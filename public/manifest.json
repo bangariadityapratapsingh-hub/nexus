@@ -1,0 +1,64 @@
+{
+  "name": "APSB Nexus | Independent Student Prep Platform for SDSUV BA Students",
+  "short_name": "APSB Nexus",
+  "description": "Independent Student Prep Platform for SDSUV BA Students (NEP 2020 Framework)",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#070913",
+  "theme_color": "#070913",
+  "orientation": "portrait-primary",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "categories": ["education", "reference", "productivity"],
+  "icons": [
+    {
+      "src": "/images/apsb_logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Syllabus & Studio",
+      "short_name": "Learn",
+      "description": "Cinema-Mode Studio & Unit Roadmaps",
+      "url": "/learn",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "PYQ Vault",
+      "short_name": "PYQs",
+      "description": "SDSUV Past Year Exam Papers",
+      "url": "/pyqs",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Exam Night Vault",
+      "short_name": "Saved",
+      "description": "Bookmarked Questions & Cheat Sheets",
+      "url": "/saved",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Exam Simulator",
+      "short_name": "Simulator",
+      "description": "3-Hour Model Question Paper",
+      "url": "/simulator",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -1,0 +1,553 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ========================================================================== */
+/* Himalayan Theme Variables: Light (Morning Mist) & Dark (Midnight)          */
+/* ========================================================================== */
+
+:root {
+  --theme-bg: #F8FAFC;
+  --theme-bg-subtle: #F1F5F9;
+  --theme-card-bg: #FFFFFF;
+  --theme-card-border: #E2E8F0;
+  --theme-nav-bg: rgba(248, 250, 252, 0.94);
+  --theme-nav-border: #E2E8F0;
+  --theme-aside-bg: #F8FAFC;
+  --theme-text-heading: #0F172A;
+  --theme-text-body: #334155;
+  --theme-text-muted: #64748B;
+  --theme-accent-teal: #0D9488;
+  --theme-accent-indigo: #4F46E5;
+  --mesh-1: rgba(13, 148, 136, 0.08);
+  --mesh-2: rgba(79, 70, 229, 0.08);
+  --mesh-3: rgba(217, 119, 6, 0.04);
+  --mesh-4: rgba(13, 148, 136, 0.05);
+  --grid-line: rgba(15, 23, 42, 0.04);
+  --scrollbar-track: #F8FAFC;
+  --scrollbar-thumb: rgba(13, 148, 136, 0.35);
+}
+
+.dark {
+  --theme-bg: #070913;
+  --theme-bg-subtle: #080d22;
+  --theme-card-bg: rgba(255, 255, 255, 0.04);
+  --theme-card-border: rgba(255, 255, 255, 0.08);
+  --theme-nav-bg: rgba(7, 9, 19, 0.85);
+  --theme-nav-border: rgba(255, 255, 255, 0.12);
+  --theme-aside-bg: rgba(8, 13, 34, 0.95);
+  --theme-text-heading: #FFFFFF;
+  --theme-text-body: #CBD5E1;
+  --theme-text-muted: #94A3B8;
+  --theme-accent-teal: #06B6D4;
+  --theme-accent-indigo: #8B5CF6;
+  --mesh-1: rgba(6, 182, 212, 0.12);
+  --mesh-2: rgba(139, 92, 246, 0.14);
+  --mesh-3: rgba(245, 158, 11, 0.05);
+  --mesh-4: rgba(6, 182, 212, 0.08);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --scrollbar-track: #070913;
+  --scrollbar-thumb: rgba(139, 92, 246, 0.3);
+}
+
+body {
+  background-color: var(--theme-bg);
+  color: var(--theme-text-heading);
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ========================================================================== */
+/* Dynamic Sidebar Responsive Layout Variables                                */
+/* ========================================================================== */
+
+:root {
+  --sidebar-w: 16rem; /* 256px expanded */
+}
+
+:root[data-sidebar="collapsed"] {
+  --sidebar-w: 70px; /* 70px collapsed */
+}
+
+@media (max-width: 767px) {
+  :root,
+  :root[data-sidebar="collapsed"] {
+    --sidebar-w: 0px;
+  }
+}
+
+.page-content-wrapper {
+  padding-left: var(--sidebar-w);
+  transition: padding-left 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-container-fluid {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: max-width 300ms cubic-bezier(0.4, 0, 0.2, 1), padding 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root[data-sidebar="collapsed"] .page-container-fluid {
+  max-width: 1750px;
+}
+
+:root:not([data-sidebar="collapsed"]) .page-container-fluid {
+  max-width: 80rem; /* 1280px / 7xl */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.6);
+}
+
+/* Himalayan Glow and Aurora Animations */
+@keyframes aurora {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+    opacity: 0.55;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.4));
+  }
+  50% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 24px rgba(139, 92, 246, 0.7));
+  }
+}
+
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-aurora {
+  animation: aurora 12s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float-subtle 6s ease-in-out infinite;
+}
+
+/* ========================================================================== */
+/* Himalayan Float & Glow + Micro-Interaction: Ambassador Car Logo           */
+/* ========================================================================== */
+
+@keyframes himalayan-float-glow {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+    box-shadow: 
+      0 0 12px rgba(6, 182, 212, 0.25),
+      0 0 24px rgba(14, 165, 233, 0.12),
+      inset 0 0 8px rgba(6, 182, 212, 0.15);
+    border-color: rgba(6, 182, 212, 0.35);
+  }
+  50% {
+    transform: translate3d(0, -4px, 0);
+    box-shadow: 
+      0 0 18px rgba(6, 182, 212, 0.45),
+      0 0 32px rgba(245, 158, 11, 0.22),
+      inset 0 0 12px rgba(245, 158, 11, 0.18);
+    border-color: rgba(56, 189, 248, 0.65);
+  }
+}
+
+@keyframes headlight-beam-pulse {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* Base Ambassador Logo Container with Hardware Acceleration */
+.ambassador-logo-container {
+  position: relative;
+  transform: translate3d(0, 0, 0);
+  transform-origin: center center;
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  transition: 
+    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* Floating & Breathing Glow (3.5s cycle) */
+.ambassador-float-glow {
+  animation: himalayan-float-glow 3.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+/* Interactive Hover Micro-Interaction:
+   - Scale 110% (scale-110)
+   - Spring effect via cubic-bezier(0.34, 1.56, 0.64, 1)
+   - Playful 5-degree tilt
+   - Radiant cyan + warm amber neon back-glow */
+.ambassador-logo-container:hover,
+.group:hover .ambassador-logo-container {
+  transform: translate3d(0, -2px, 0) scale(1.1) rotate(-5deg);
+  box-shadow: 
+    0 0 22px rgba(6, 182, 212, 0.6),
+    0 0 42px rgba(245, 158, 11, 0.32),
+    inset 0 0 12px rgba(6, 182, 212, 0.25);
+  border-color: rgba(103, 232, 249, 0.85);
+  animation-play-state: paused;
+}
+
+/* Inner Car SVG Micro-surge */
+.ambassador-car-svg {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.ambassador-logo-container:hover .ambassador-car-svg,
+.group:hover .ambassador-logo-container .ambassador-car-svg {
+  transform: scale(1.04) translate3d(1px, -0.5px, 0);
+}
+
+/* Glowing Headlight */
+.ambassador-headlight-glow {
+  animation: headlight-beam-pulse 3.5s ease-in-out infinite;
+  transform-origin: 6px 35px;
+  will-change: transform, opacity;
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .ambassador-float-glow {
+    animation: none !important;
+    transform: none !important;
+  }
+  .ambassador-logo-container {
+    transition: none !important;
+  }
+  .ambassador-logo-container:hover,
+  .group:hover .ambassador-logo-container {
+    transform: none !important;
+  }
+  .ambassador-car-svg,
+  .ambassador-headlight-glow {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--theme-card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--theme-card-border);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  border-color: rgba(6, 182, 212, 0.35);
+  box-shadow: 0 12px 36px -10px rgba(6, 182, 212, 0.15), 0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+.glass-nav {
+  background: var(--theme-nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--theme-nav-border);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Radial Glow Backdrops */
+.himalayan-mesh-bg {
+  background-color: var(--theme-bg);
+  background-image: 
+    radial-gradient(at 0% 0%, var(--mesh-1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, var(--mesh-2) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, var(--mesh-3) 0px, transparent 40%),
+    radial-gradient(at 50% 100%, var(--mesh-4) 0px, transparent 50%);
+  transition: background-color 0.25s ease;
+}
+
+.starlight-grid {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+}
+
+/* ========================================================================== */
+/* Apple / Notion Style Warm Ivory & Teal Light Theme Architecture            */
+/* ========================================================================== */
+
+html:not(.dark) {
+  color-scheme: light;
+}
+
+/* Page Backgrounds & Canvas Surfaces */
+html:not(.dark) body,
+html:not(.dark) .min-h-screen,
+html:not(.dark) .himalayan-mesh-bg {
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text-body);
+}
+
+html:not(.dark) .himalayan-mesh-bg {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(79, 70, 229, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(245, 158, 11, 0.04) 0px, transparent 40%),
+    radial-gradient(at 50% 100%, rgba(13, 148, 136, 0.06) 0px, transparent 50%) !important;
+}
+
+html:not(.dark) .starlight-grid {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px) !important;
+}
+
+/* Cards & Containers: Crisp Pure White (#FFFFFF) with Soft Slate Borders & Elevation */
+html:not(.dark) .glass-panel {
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  color: var(--theme-text-body);
+}
+
+html:not(.dark) .glass-panel-hover:hover {
+  border-color: rgba(13, 148, 136, 0.4) !important;
+  box-shadow: 0 12px 32px -8px rgba(13, 148, 136, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Navigation Bars */
+html:not(.dark) .glass-nav {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06) !important;
+}
+
+html:not(.dark) header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: #E2E8F0 !important;
+}
+
+/* Sidebars */
+html:not(.dark) aside {
+  background-color: #F8FAFC !important;
+  border-right-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+/* Strict Typography Contrast */
+html:not(.dark) h1:not(.text-transparent):not([class*="bg-clip-text"]),
+html:not(.dark) h2:not(.text-transparent):not([class*="bg-clip-text"]),
+html:not(.dark) h3:not(.text-transparent):not([class*="bg-clip-text"]),
+html:not(.dark) h4:not(.text-transparent):not([class*="bg-clip-text"]),
+html:not(.dark) h5:not(.text-transparent):not([class*="bg-clip-text"]),
+html:not(.dark) h6:not(.text-transparent):not([class*="bg-clip-text"]) {
+  color: #0F172A !important;
+}
+
+/* Body & Muted Labels */
+html:not(.dark) .glass-panel p:not([class*="text-"]):not([class*="text-amber-"]):not([class*="text-emerald-"]):not([class*="text-teal-"]):not([class*="text-indigo-"]):not([class*="text-rose-"]),
+html:not(.dark) .glass-panel p.text-slate-200,
+html:not(.dark) .glass-panel p.text-slate-300 {
+  color: #334155 !important;
+}
+
+html:not(.dark) .glass-panel p.text-slate-400,
+html:not(.dark) .glass-panel span.text-slate-400,
+html:not(.dark) .glass-panel div.text-slate-400 {
+  color: #64748B !important;
+}
+
+html:not(.dark) .glass-panel span.text-slate-200,
+html:not(.dark) .glass-panel span.text-slate-300,
+html:not(.dark) .glass-panel div.text-slate-200,
+html:not(.dark) .glass-panel div.text-slate-300 {
+  color: #334155 !important;
+}
+
+/* Text white converted to deep slate on light panels, strictly protecting buttons & colored badges */
+html:not(.dark) .glass-panel .text-white:not(button):not(button *):not(a[class*="bg-"]):not(a[class*="bg-"] *):not([class*="bg-teal-"]):not([class*="bg-emerald-"]):not([class*="bg-indigo-"]):not([class*="bg-violet-"]):not([class*="bg-cyan-"]):not([class*="bg-rose-"]):not([class*="bg-amber-"]):not([class*="bg-gradient-"]):not([class*="bg-clip-text"]):not(.text-transparent):not(code) {
+  color: #0F172A !important;
+}
+
+/* Locked BSc Cards & Footer in Light Mode: clean #F1F5F9 slate-ivory with #0F172A text */
+html:not(.dark) .surface-locked-card,
+html:not(.dark) div[class*="border-white/10"][class*="bg-[#090d1f]"] {
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+html:not(.dark) footer {
+  background-color: #F8FAFC !important;
+  border-top-color: #E2E8F0 !important;
+  color: #334155 !important;
+}
+
+html:not(.dark) footer h4,
+html:not(.dark) footer h5 {
+  color: #0F172A !important;
+}
+
+html:not(.dark) footer a:not([class*="text-cyan-"]) {
+  color: #475569 !important;
+}
+
+html:not(.dark) footer a:hover {
+  color: #0D9488 !important;
+}
+
+html:not(.dark) footer .text-slate-400,
+html:not(.dark) footer .text-slate-500 {
+  color: #64748B !important;
+}
+
+/* Form Inputs & Selects on Light Panels */
+html:not(.dark) .glass-panel input:not([type="checkbox"]):not([type="radio"]),
+html:not(.dark) .glass-panel select,
+html:not(.dark) .glass-panel textarea {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+html:not(.dark) .glass-panel input::placeholder,
+html:not(.dark) .glass-panel textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Accent Buttons & Badges: Rich Emerald/Teal (#0D9488) and Royal Indigo (#4F46E5) with crisp white text */
+.btn-accent-teal,
+html:not(.dark) .btn-accent-teal {
+  background-color: #0D9488 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(13, 148, 136, 0.4) !important;
+}
+.btn-accent-teal:hover,
+html:not(.dark) .btn-accent-teal:hover {
+  background-color: #0F766E !important;
+  color: #FFFFFF !important;
+}
+
+.btn-accent-indigo,
+html:not(.dark) .btn-accent-indigo {
+  background-color: #4F46E5 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(79, 70, 229, 0.4) !important;
+}
+.btn-accent-indigo:hover,
+html:not(.dark) .btn-accent-indigo:hover {
+  background-color: #4338CA !important;
+  color: #FFFFFF !important;
+}
+
+/* ========================================================================== */
+/* LockInPrep Style Tactile 3D Buttons & Aurora Ambient Light Trails          */
+/* ========================================================================== */
+
+@keyframes lockin-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-lockin-float {
+  animation: lockin-float 4s ease-in-out infinite;
+}
+
+/* 3D Tactile Buttons */
+.btn-3d-cyan {
+  background-color: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 5px 0 #075985;
+  transition: all 0.15s ease-in-out;
+}
+.btn-3d-cyan:hover {
+  background-color: #0369a1;
+  box-shadow: 0 3px 0 #075985;
+  transform: translateY(2px);
+}
+.btn-3d-cyan:active {
+  box-shadow: 0 0 0 #075985;
+  transform: translateY(5px);
+}
+
+.btn-3d-green {
+  background-color: #16a34a;
+  color: #ffffff;
+  box-shadow: 0 5px 0 #14532d;
+  transition: all 0.15s ease-in-out;
+}
+.btn-3d-green:hover {
+  background-color: #15803d;
+  box-shadow: 0 3px 0 #14532d;
+  transform: translateY(2px);
+}
+.btn-3d-green:active {
+  box-shadow: 0 0 0 #14532d;
+  transform: translateY(5px);
+}
+
+.btn-3d-gold {
+  background-color: #ffc83d;
+  color: #5a3d00;
+  box-shadow: 0 5px 0 #d99b00;
+  font-weight: 900;
+  transition: all 0.15s ease-in-out;
+}
+.btn-3d-gold:hover {
+  background-color: #ffd466;
+  box-shadow: 0 3px 0 #d99b00;
+  transform: translateY(2px);
+}
+.btn-3d-gold:active {
+  box-shadow: 0 0 0 #d99b00;
+  transform: translateY(5px);
+}
+
+
+
