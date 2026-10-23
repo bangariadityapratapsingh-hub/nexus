@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
-  Sparkles,
   ArrowRight,
   BookOpen,
   Archive,
@@ -79,21 +78,21 @@ export default function LandingPage() {
       {/* ==================================================================== */}
       {/* PUBLIC TOP NAVIGATION BAR                                            */}
       {/* ==================================================================== */}
-      <header className="fixed top-4 left-0 right-0 z-40 px-4 sm:px-6 max-w-7xl mx-auto">
-        <div className="glass-nav rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between border border-white/10 shadow-2xl shadow-black/80 backdrop-blur-2xl bg-[#080d22]/90">
+      <header className="fixed top-2 sm:top-4 left-0 right-0 z-40 px-2 sm:px-6 max-w-7xl mx-auto">
+        <div className="glass-nav rounded-xl sm:rounded-2xl px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between border border-white/10 shadow-2xl shadow-black/80 backdrop-blur-2xl bg-[#080d22]/90 min-w-0">
           {/* Brand Logo & Name */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <AmbassadorCarLogo size={36} />
-            <div>
+          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group min-w-0 shrink">
+            <AmbassadorCarLogo size={28} />
+            <div className="min-w-0">
               <div className="flex items-center space-x-1.5">
-                <span className="font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-200 to-violet-300 text-sm">
+                <span className="font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-200 to-violet-300 text-xs sm:text-sm whitespace-nowrap">
                   APSB NEXUS
                 </span>
-                <span className="inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-bold bg-cyan-950/80 text-cyan-300 border border-cyan-500/30">
+                <span className="hidden sm:inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-bold bg-cyan-950/80 text-cyan-300 border border-cyan-500/30 shrink-0">
                   STUDENT HUB
                 </span>
               </div>
-              <p className="text-[10px] text-slate-400 hidden sm:block">
+              <p className="text-[10px] text-slate-400 hidden md:block truncate">
                 {lang === 'en'
                   ? 'Independent Student Prep Platform for SDSUV BA Students'
                   : 'एसडीएसयूवी बीए छात्रों के लिए स्वतंत्र अध्ययन मंच'}
@@ -105,20 +104,20 @@ export default function LandingPage() {
           <nav className="hidden md:flex items-center space-x-6 text-xs text-slate-300 font-medium">
             <a href="#courses" className="hover:text-emerald-400 text-emerald-300 font-bold transition-colors flex items-center space-x-1">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>{lang === 'en' ? '🏛️ BA Phase 1 Live' : '🏛️ बीए फेज 1 लाइव'}</span>
+              <span>{lang === 'en' ? 'BA Phase 1 Live' : 'बीए फेज 1 लाइव'}</span>
             </a>
             <Link href="/current-affairs" className="hover:text-emerald-300 text-emerald-400 font-bold transition-colors flex items-center space-x-1.5">
-              <span>📰 {lang === 'en' ? 'Current Affairs' : 'समसामयिकी'}</span>
+              <span>{lang === 'en' ? 'Current Affairs' : 'समसामयिकी'}</span>
               <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-rose-500 text-white font-mono font-bold animate-pulse">LIVE</span>
             </Link>
             <Link href="/notes" className="hover:text-violet-300 text-violet-400 font-bold transition-colors flex items-center space-x-1">
-              <span>{lang === 'en' ? '📚 Notes Studio' : '📚 नोट्स'}</span>
+              <span>{lang === 'en' ? 'Notes Studio' : 'नोट्स'}</span>
             </Link>
             <Link href="/syllabus" className="hover:text-cyan-300 text-cyan-400 font-bold transition-colors flex items-center space-x-1">
-              <span>{lang === 'en' ? '📄 Syllabus Hub' : '📄 पाठ्यक्रम'}</span>
+              <span>{lang === 'en' ? 'Syllabus Hub' : 'पाठ्यक्रम'}</span>
             </Link>
             <Link href="/learn" className="hover:text-blue-300 text-blue-400 font-bold transition-colors flex items-center space-x-1">
-              <span>{lang === 'en' ? '🎬 Study Studio' : '🎬 कक्षा'}</span>
+              <span>{lang === 'en' ? 'Study Studio' : 'कक्षा'}</span>
             </Link>
             <a href="#features" className="hover:text-cyan-400 transition-colors">
               {lang === 'en' ? 'Platform Features' : 'मंच की विशेषताएं'}
@@ -137,7 +136,7 @@ export default function LandingPage() {
           </nav>
 
           {/* Right Action Controls: Theme Toggle + Medium Switcher + Auth Buttons */}
-          <div className="flex items-center space-x-2.5">
+          <div className="flex items-center space-x-1.5 sm:space-x-2.5 shrink-0">
             {/* Sleek Animated ☀️ Light / 🌙 Dark Toggle Pill */}
             <ThemeToggle lang={lang} />
 
@@ -145,7 +144,7 @@ export default function LandingPage() {
             <div className="flex items-center p-0.5 bg-black/50 dark:bg-black/50 light:bg-slate-200/80 rounded-full border border-white/10 dark:border-white/10 light:border-slate-300">
               <button
                 onClick={() => setLang('en')}
-                className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all ${
+                className={`px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-bold transition-all ${
                   lang === 'en' ? 'bg-cyan-500 text-slate-950 shadow-sm' : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -153,7 +152,7 @@ export default function LandingPage() {
               </button>
               <button
                 onClick={() => setLang('hi')}
-                className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all ${
+                className={`px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-bold transition-all ${
                   lang === 'hi' ? 'bg-amber-500 text-slate-950 shadow-sm' : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -165,27 +164,27 @@ export default function LandingPage() {
             {loggedInUser ? (
               <Link
                 href="/dashboard"
-                className="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-slate-950 font-black text-xs shadow-md shadow-emerald-500/20 hover:scale-105 transition-all flex items-center space-x-1.5"
+                className="px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-slate-950 font-black text-[11px] sm:text-xs shadow-md shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-all flex items-center space-x-1 sm:space-x-1.5 shrink-0"
               >
                 <span>Dashboard</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
               </Link>
             ) : (
               <>
                 <Link
                   href="/auth?mode=signin"
-                  className="px-3 py-1.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-slate-200 hover:text-white text-xs font-semibold border border-white/10 transition-colors hidden sm:inline-flex items-center space-x-1"
+                  className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-slate-200 hover:text-white text-[11px] sm:text-xs font-semibold border border-white/10 transition-colors hidden sm:inline-flex items-center space-x-1 shrink-0"
                 >
-                  <LogIn className="w-3.5 h-3.5 text-cyan-400" />
+                  <LogIn className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                   <span>Sign In</span>
                 </Link>
 
                 <Link
                   href="/auth?mode=signup"
-                  className="px-4 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 text-slate-950 font-black text-xs shadow-md shadow-emerald-500/30 hover:scale-105 transition-all flex items-center space-x-1.5"
+                  className="px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 text-slate-950 font-black text-[11px] sm:text-xs shadow-md shadow-emerald-500/30 hover:scale-105 active:scale-95 transition-all flex items-center space-x-1 sm:space-x-1.5 shrink-0"
                 >
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>Sign Up (BA Live)</span>
+                  <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
+                  <span>Sign Up</span>
                 </Link>
               </>
             )}
@@ -196,19 +195,19 @@ export default function LandingPage() {
       {/* ==================================================================== */}
       {/* HERO SECTION                                                         */}
       {/* ==================================================================== */}
-      <section className="relative z-10 pt-32 sm:pt-40 pb-16 max-w-7xl mx-auto px-4 sm:px-6 w-full text-center">
+      <section className="relative z-10 pt-24 sm:pt-40 pb-12 sm:pb-16 max-w-7xl mx-auto px-4 sm:px-6 w-full text-center">
         {/* Unofficial Banner Badge */}
-        <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-950/70 border border-emerald-500/40 text-emerald-300 text-xs font-semibold mb-6 shadow-lg shadow-emerald-950/40">
-          <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>
+        <div className="inline-flex items-center space-x-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-emerald-950/70 border border-emerald-500/40 text-emerald-300 text-[11px] sm:text-xs font-semibold mb-6 shadow-lg shadow-emerald-950/40 max-w-full">
+          <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+          <span className="leading-tight">
             {lang === 'en'
-              ? '✨ Phase 1 Exclusively Live for BA (Bachelor of Arts) Students • SDSUV NEP 2020'
-              : '✨ फेज 1 केवल बीए (बैचलर ऑफ आर्ट्स) विद्यार्थियों हेतु लाइव • एसडीएसयूवी एनईपी 2020'}
+              ? 'Phase 1 Active • BA (Bachelor of Arts) • SDSUV NEP 2020'
+              : 'फेज 1 सक्रिय • बीए (बैचलर ऑफ आर्ट्स) • एसडीएसयूवी एनईपी 2020'}
           </span>
         </div>
 
         {/* Hero Title */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
+        <h1 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white tracking-tight leading-snug sm:leading-tight max-w-4xl mx-auto px-2">
           {lang === 'en' ? (
             <>
               Ace Your SDSUV Degree with{' '}
@@ -227,31 +226,32 @@ export default function LandingPage() {
         </h1>
 
         {/* Hero Subtitle */}
-        <p className="mt-5 text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-4 sm:mt-5 text-xs sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed px-2">
           {lang === 'en'
             ? 'The all-in-one unofficial learning platform for Sri Dev Suman Uttarakhand University students. Phase 1 active with Ancient History, Uttarakhand Dynasties, Polity, Physical Geography, Economics, and Cinema-mode bilingual lectures.'
             : 'श्री देव सुमन उत्तराखंड विश्वविद्यालय के छात्रों के लिए पूर्ण अध्ययन मंच। फेज 1 में प्राचीन इतिहास, उत्तराखंड के राजवंश, राजनीति विज्ञान, भौतिक भूगोल, अर्थशास्त्र एवं द्विभाषी वीडियो लेक्चर्स लाइव हैं।'}
         </p>
 
         {/* Hero Call-to-Action Buttons */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto">
           <a
             href="#courses"
-            className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 text-slate-950 font-black text-sm sm:text-base shadow-2xl shadow-emerald-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center space-x-2.5"
+            className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-emerald-500/25 hover:scale-105 active:scale-95 transition-all flex items-center justify-center space-x-2"
           >
-            <Sparkles className="w-5 h-5 text-slate-950" />
+            <BookOpen className="w-4 h-4 text-slate-950 shrink-0" />
             <span>{lang === 'en' ? 'Select Degree & Start (BA Active)' : 'पाठ्यक्रम चुनें एवं शुरू करें (बीए लाइव)'}</span>
-            <ArrowRight className="w-4 h-4 text-slate-950" />
+            <ArrowRight className="w-3.5 h-3.5 text-slate-950 shrink-0" />
           </a>
 
           <Link
             href="/auth?mode=signin"
-            className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/15 text-white font-bold text-sm sm:text-base backdrop-blur-xl transition-all flex items-center justify-center space-x-2"
+            className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/15 text-white font-bold text-xs sm:text-sm backdrop-blur-xl transition-all flex items-center justify-center space-x-2"
           >
-            <LogIn className="w-4 h-4 text-cyan-400" />
+            <LogIn className="w-4 h-4 text-cyan-400 shrink-0" />
             <span>{lang === 'en' ? 'Sign In to My Dashboard' : 'डैशबोर्ड में साइन इन करें'}</span>
           </Link>
         </div>
+
 
         {/* Hero Himalayan Backdrop Image Card */}
         <div className="mt-12 relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl max-w-5xl mx-auto h-52 sm:h-72 lg:h-80">
@@ -414,7 +414,7 @@ export default function LandingPage() {
                 href="/pyqs"
                 className="text-xs font-bold text-amber-300 group-hover:text-amber-200 flex items-center space-x-1"
               >
-                <span>{lang === 'en' ? '🔒 Under Process - Live Soon' : '🔒 प्रक्रियाधीन - शीघ्र लाइव'}</span>
+                <span>{lang === 'en' ? 'Under Process • Live Soon' : 'प्रक्रियाधीन • शीघ्र लाइव'}</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -568,7 +568,7 @@ export default function LandingPage() {
                 href="/careers"
                 className="text-xs font-bold text-emerald-300 group-hover:text-emerald-200 flex items-center space-x-1"
               >
-                <span>{lang === 'en' ? '🔒 Under Process - Live Soon' : '🔒 प्रक्रियाधीन - शीघ्र लाइव'}</span>
+                <span>{lang === 'en' ? 'Under Process • Live Soon' : 'प्रक्रियाधीन • शीघ्र लाइव'}</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </Link>
             </div>

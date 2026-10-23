@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Lock,
-  Sparkles,
   CheckCircle2,
   Bell,
   Globe2,
@@ -174,8 +173,8 @@ export default function CourseSelectorCards({
             {/* Active Header Badge with Pulse */}
             <div className="flex items-center justify-between mb-3">
               <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-black uppercase tracking-wider bg-emerald-100 dark:bg-gradient-to-r dark:from-emerald-500/30 dark:to-cyan-500/30 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-400/50 shadow-sm animate-pulse">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
-                <span>✨ ACTIVE NOW • PHASE 1 LIVE</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
+                <span>ACTIVE NOW • PHASE 1 LIVE</span>
               </span>
 
               <span className="text-2xl" role="img" aria-label="BA Arts">
@@ -240,7 +239,7 @@ export default function CourseSelectorCards({
             <div className="flex items-center justify-between mb-3">
               <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-200/90 dark:bg-black/70 text-slate-700 dark:text-slate-400 border border-slate-300 dark:border-white/15 backdrop-blur-sm">
                 <Lock className="w-3 h-3 text-teal-600 dark:text-cyan-400" />
-                <span>🔒 Coming Soon</span>
+                <span>Coming Soon</span>
               </span>
 
               <span className="text-2xl opacity-75">📐</span>
@@ -274,7 +273,7 @@ export default function CourseSelectorCards({
               className="px-3 py-1.5 rounded-xl bg-[#0D9488] hover:bg-[#0F766E] text-white border border-teal-600/40 text-xs font-bold transition-all hover:scale-105 shadow-sm shadow-teal-700/20 flex items-center space-x-1 cursor-pointer"
             >
               <Bell className="w-3 h-3 text-white" />
-              <span>🔔 Join BSc Waitlist</span>
+              <span>Join BSc Waitlist</span>
             </button>
           </div>
         </div>
@@ -294,7 +293,7 @@ export default function CourseSelectorCards({
             <div className="flex items-center justify-between mb-3">
               <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-200/90 dark:bg-black/70 text-slate-700 dark:text-slate-400 border border-slate-300 dark:border-white/15 backdrop-blur-sm">
                 <Lock className="w-3 h-3 text-teal-600 dark:text-emerald-400" />
-                <span>🔒 Coming Soon</span>
+                <span>Coming Soon</span>
               </span>
 
               <span className="text-2xl opacity-75">🧬</span>
@@ -328,7 +327,7 @@ export default function CourseSelectorCards({
               className="px-3 py-1.5 rounded-xl bg-[#0D9488] hover:bg-[#0F766E] text-white border border-teal-600/40 text-xs font-bold transition-all hover:scale-105 shadow-sm shadow-teal-700/20 flex items-center space-x-1 cursor-pointer"
             >
               <Bell className="w-3 h-3 text-white" />
-              <span>🔔 Join BSc Waitlist</span>
+              <span>Join BSc Waitlist</span>
             </button>
           </div>
         </div>
@@ -349,7 +348,7 @@ export default function CourseSelectorCards({
             <div>
               <div className="flex items-center space-x-2">
                 <span className="p-1 rounded-lg bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400">
-                  <Sparkles className="w-4 h-4" />
+                  <BookOpen className="w-4 h-4" />
                 </span>
                 <h4 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
                   Configure Your SDSUV BA Degree Curriculum
@@ -361,7 +360,7 @@ export default function CourseSelectorCards({
             </div>
 
             <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-500/40 font-bold">
-              🏛️ SDSUV NEP-2020 Aligned
+              SDSUV NEP-2020 Aligned
             </span>
           </div>
 
