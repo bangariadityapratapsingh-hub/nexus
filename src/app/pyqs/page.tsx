@@ -128,7 +128,7 @@ export default function PYQVaultPage() {
             {/* What's being prepared */}
             <div className="max-w-sm mx-auto text-left space-y-2 pt-2">
               <p className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-wider">
-                {lang === 'en' ? 'What we're preparing' : 'हम क्या तैयार कर रहे हैं'}
+                {lang === 'en' ? "What we're preparing" : 'हम क्या तैयार कर रहे हैं'}
               </p>
               {[
                 lang === 'en' ? '350+ questions indexed by NEP-2020 unit weightage' : 'एनईपी-2020 इकाई भार के अनुसार 350+ प्रश्न',
